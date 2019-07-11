@@ -1,0 +1,16 @@
+kind: Pod
+metadata:
+  name: label-demo
+  labels:
+    app.kubernetes.io/name: nginx-pod
+    app.kubernetes.io/instance: a12
+    app.kubernetes.io/version: “v2.0.1”
+    app.kubernetes.io/component: Payment
+    app.kubernetes.io/part-of: hrmgmt
+    app.kubernetes.io/managed-by: hrops
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.7.9
+    ports:
+    - containerPort: 80

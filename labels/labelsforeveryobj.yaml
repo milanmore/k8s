@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: label-demo
+  labels:
+    application: hrmgmt
+    version: "v1.23.2"
+    release: "r2.1"
+    stage: production    
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.7.9
+    ports:
+    - containerPort: 80
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: hrmgmt
+spec:
+  selector:
+    application: hrmgmt
+    stage: production
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP    

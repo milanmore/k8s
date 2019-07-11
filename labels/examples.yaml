@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: label-demo
+  labels:
+    environment: production
+    app: nginx
+    release: stable
+    tier: backend
+    track: weekly
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.7.9
+    ports:
+    - containerPort: 80
+    

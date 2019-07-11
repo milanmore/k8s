@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mysql
+spec:
+  volumes:
+  - name: mysqldb
+    persistentVolumeClaim:
+      claimName: mysql-pvc
+  containers:
+  - image: mysql:5.6
+    name: mysql
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: mysqlpass
+    volumeMounts:
+    - name: mysqldb
+      mountPath: /var/lib/mysql

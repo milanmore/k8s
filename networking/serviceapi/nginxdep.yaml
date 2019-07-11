@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: custnginx
+  name: custnginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: custnginx
+  template:
+    metadata:
+      labels:
+        app: custnginx
+    spec:
+      containers:
+      - image: ketanvj/custnginx:v1
+        name: custnginx
+        ports:
+        - containerPort: 80
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
