@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svcdebug
+spec:
+  selector:
+    matchLabels:
+      app: svcdebug
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: svcdebug
+    spec:
+      containers:
+      - name: svcdebug
+        image: k8s.gcr.io/serve_hostname
+        ports:
+        - containerPort: 9376
+          protocol: TCP

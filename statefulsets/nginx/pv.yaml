@@ -1,0 +1,12 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: statefulpv
+spec:
+  storageClassName: local-storage1
+  capacity:
+    storage: 10Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
