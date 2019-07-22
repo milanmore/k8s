@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxadv
+  labels:
+    app: nginx
+  annotations: 
+    kubernetes.io/change-cause: "This is to change the revision of Nginx"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.15.5
+        ports:
+        - containerPort: 80
