@@ -4,7 +4,7 @@ metadata:
   labels:
     app: work-queue
     component: queue
-    chapter: jobs
+    example: jobs
   name: queue
 spec:
   ports:

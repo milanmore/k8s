@@ -23,4 +23,4 @@ kubectl create -f jobconsumers.yaml
 kubectl get pods -w
 
 # clean up the objects created
-kubectl delete rs,svc,job -l chapter=jobs
+kubectl delete rs,svc,job -l example=jobs
