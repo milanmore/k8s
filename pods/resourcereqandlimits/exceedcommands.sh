@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Create namespace memory-demo if not already created
-kubectl create -f mem-examplesns.yaml
+kubectl create -f mem-examplens.yaml
 
-# Create Pod in the same namespace having memory limits
+# Create Pod in the same namespace
 # The args section in the configuration file provides arguments for the Container when it starts. The "--vm-bytes", "250M" arguments tell the Container to attempt to allocate 250 MiB of memory.This is beyond the quota allocated to pod
 
 kubectl create -f exceedmemlimitpod.yaml -n mem-example

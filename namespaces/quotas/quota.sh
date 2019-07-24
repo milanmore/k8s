@@ -16,7 +16,7 @@ kubectl get resourcequota mem-cpu-demo --namespace=mem-cpu --output=yaml
 
 kubectl create -f podmemcpu.yaml
 
-# Check if the pod gets created. It will as resources are within the limits
+# Check if the pod gets created. It will, as resources are within the limits
 
 kubectl get pod quota-mem-cpu-demo -n mem-cpu
 
@@ -37,8 +37,7 @@ kubectl create -f podmemcpu3.yaml
 
 # Now delete the resources created
 
-kubectl delete ns mem-cpu 
-
+kubectl delete ns mem-cpu
 
 
 

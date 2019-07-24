@@ -20,4 +20,6 @@ kubectl create -f prodpod.yaml
 kubectl delete pod dev-pod
 kubectl delete deploy prod
 
+# Untaint the node
+kubectl taint node ketanvj2c.mylabserver.com node-type:NoSchedule-
 
