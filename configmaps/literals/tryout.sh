@@ -3,3 +3,9 @@ kubectl create configmap my-config1 --from-file=my-config.txt --from-literal=SER
 kubectl get configmaps
 kubectl describe configmap my-config1
 kubectl get configmaps my-config1 -o yaml
+
+# Now create the pod
+kubectl create -f podwithenv.yaml
+
+# Now check the environment variables with 
+kubectl logs dapi-test-pod

@@ -1,5 +1,4 @@
 #Create a collection of pods with labels assinged to each
-more CreatePodsWithLabels.yaml
 kubectl apply -f CreatePodsWithLabels.yaml
 
 #Look at all the Pod labels in our cluster

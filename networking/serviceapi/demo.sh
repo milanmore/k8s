@@ -51,7 +51,7 @@ read
 echo "Enter the ClusterIP below"
 read clusterIP
 echo 'create a temporary container and run curl command to request service from clusterIP:8082'
-echo -e "${GR}kubectl run -it --rm curl --restart=Never \\${NC}"
+echo -e "${GR}kubectl run -it --rm curl --restart=Never \\ ${NC}"
 echo -e   "${GR}--image=appropriate/curl -- $clusterIP:8082${NC}"
 echo 'Press ENTER to execute above command'
 read
