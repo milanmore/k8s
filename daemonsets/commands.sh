@@ -28,7 +28,7 @@ kubectl create -f nginx-ssd.yaml
 kubectl get pods -o wide
 
 # Now add a lable to one of the nodes
-kubectl label nodes <Node Name> ssd=true
+kubectl label nodes ketanvj2c.mylabserver.com ssd=true
 
 
 # Verify that the label got created 
@@ -38,6 +38,7 @@ kubectl get nodes --selector ssd==true
 kubectl get pods -o wide
 
 # Now add the label on the second node and check whether one more Pod got created
+kubectl label nodes ketanvj2c.mylabserver.com ssd=true
 
 # Now delete the label from one of the nodes
 kubectl label node ketanvj2c.mylabserver.com ssd-
@@ -47,7 +48,8 @@ kubectl label node ketanvj2c.mylabserver.com ssd-
 # Delete the DaemonSet
 kubectl delete ds nginx-fast-storage
 
-
+# Delete the label
+kubectl label node ketanvj3c.mylabserver.com ssd-
 
 
 
