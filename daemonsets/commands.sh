@@ -18,7 +18,7 @@ kubectl delete pod <Pod Name> -n kube-system
 kubectl get pods -o wide -n kube-system
 
 # Delete the fluentd daemonset
-kubectl delete ds fluentd
+kubectl delete ds fluentd -m kube-system
 
 # Now execute the nginx DaemonSet
 kubectl create -f nginx-ssd.yaml
