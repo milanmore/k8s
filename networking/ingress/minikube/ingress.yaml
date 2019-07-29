@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: e2e-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: \"false\"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /e2e-test
+        backend:
+          serviceName: e2e-svc
+          servicePort: 80
+
+# The nginx.ingress.kubernetes.io/ssl-redirect annotation is used because we are not specifying a host. When no host is specified, then the default-server is hit. The default-server is configured with a self-signed certificate, so the traffic redirects http to https
