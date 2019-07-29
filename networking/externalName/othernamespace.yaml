@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: test-service-1
+  namespace: namespace-a
+spec:
+  type: ExternalName
+  externalName: test-service-2.namespace-b.svc.cluster.local
+  ports:
+  - port: 80

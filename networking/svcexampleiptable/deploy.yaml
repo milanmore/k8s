@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-svc
+  labels:
+    app: ss
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ss
+  template:
+    metadata:
+      labels:
+        app: ss
+    spec:
+      containers:
+      - name: ss
+        image: mhausenblas/simpleservice:0.4.0
+        ports:
+        - containerPort: 9876
