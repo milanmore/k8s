@@ -4,7 +4,7 @@ metadata:
   name: test-pd
 spec:
   containers:
-  - image: k8s.gcr.io/test-webserver
+  - image: nginx
     name: test-container
     volumeMounts:
     - mountPath: /test-pd
@@ -13,6 +13,6 @@ spec:
   - name: test-volume
     hostPath:
       # directory location on host
-      path: /data
+      path: /tmp
       # this field is optional
       type: Directory

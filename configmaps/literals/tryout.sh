@@ -9,3 +9,7 @@ kubectl create -f podwithenv.yaml
 
 # Now check the environment variables with 
 kubectl logs dapi-test-pod
+
+# clean up
+kubectl delete cm my-config1
+kubectl delete pod dapi-test-pod

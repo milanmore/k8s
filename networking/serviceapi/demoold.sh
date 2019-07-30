@@ -59,7 +59,18 @@ kubectl run -it --rm curl --restart=Never \
     --image=appropriate/curl -- $clusterIP:8082
 echo
 
-# 6. Edit the custnginx service, and change the type from ClusterIP to NodePort.
+# 6. Check that the service can be consumed using the custnginx service name.
+read
+echo 'verify that service is accessible via service name internally without using IP address'
+echo -e "${GR}kubectl run -it --rm curl --restart=Never \\"
+echo -e "    --image=appropriate/curl -- custnginx:8082${NC}"
+echo 'Press ENTER to execute above command'
+read
+kubectl run -it --rm curl --restart=Never \
+    --image=appropriate/curl -- custnginx:8082
+echo
+
+# 7. Edit the custnginx service, and change the type from ClusterIP to NodePort.
 read
 echo 'Edit the service and change the type to NodePort nodeport as 30082'
 echo -e "${GR}kubectl edit svc custnginx${NC}"
@@ -68,7 +79,7 @@ read
 kubectl edit svc custnginx
 echo
 
-# 7. Inspect the updated Service object, and make a note of the nodePort.
+# 8. Inspect the updated Service object, and make a note of the nodePort.
 read
 echo ''
 echo -e "${GR}kubectl get svc custnginx -o yaml${NC}"
@@ -77,7 +88,7 @@ read
 kubectl get svc custnginx -o yaml
 echo
 
-# 8. Using each node's external IP address, and the nodePort, use a web browser
+# 9. Using each node's external IP address, and the nodePort, use a web browser
 #    to navigate to the exposed service.
 echo 'DO NOT PRESS ENTER NOW. Once you check the service in the browser then you press enter'
 echo 'Enter will delete the service and deployment both'
@@ -87,17 +98,17 @@ read
 kubectl delete service custnginx
 echo
 kubectl delete deploy custnginx
-# 9. If you have enabled the LoadBalancer service of you cloud provider.
+# 10. If you have enabled the LoadBalancer service of you cloud provider.
 #     then you can Edit the nginx service, and change the type from NodePort to
 #    LoadBalancer.
 
 # kubectl edit svc nginxhello (change type to LoadBalancer)
 
-# 10. Inspect the updated Service object, and make a note of the hostname or IP
+# 11. Inspect the updated Service object, and make a note of the hostname or IP
 #     address of the provisioned load balancer. You may  have to wait for this to
 #     be provisioned.
 
 # kubectl get svc nginxhello -o yaml
 
-# 11. Using the hostname or IP address of the load balancer, use a web browser to
+# 12. Using the hostname or IP address of the load balancer, use a web browser to
 #     navigate to the service.
