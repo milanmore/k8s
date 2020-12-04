@@ -1,0 +1,10 @@
+# Instructions for installing metric server
+kubectl apply -f metrics-server-components.yaml
+# give one minute and then check if the metric server is available
+kubectl get --raw /apis/metrics.k8s.io/
+# if above commands returns JSON output with APIGroup it is working
+# try using the following commands
+kubectl top nodes
+kubctl top pods
+
+# wait for couple of minutes before executing above commands as metrics server takes time to collect the data in the first instance
