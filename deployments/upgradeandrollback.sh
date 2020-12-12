@@ -3,9 +3,32 @@ echo 'create a simple deployment from command line using and scale it to 3'
 echo 'kubectl create deployment nginxdep --image=nginx'
 read
 kubectl create deployment nginxdep --image=nginx
+read
+echo ''
+echo 'Now check the deployment, raplicaset, and pods'
+echo 'kubectl get deploy,rs,po -l app=nginxdep'
+read
 kubectl get deploy,rs,po -l app=nginxdep
+read
+echo ''
+echo 'Now scale the deployment, raplicaset to 3'
+echo 'kubectl scale deploy nginxdep --replicas=3'
+read
 kubectl scale deploy nginxdep --replicas=3
+
+read
+echo ''
+echo 'Now check the deployment, raplicaset, and pods'
+echo 'kubectl get deploy,rs,po -l app=nginxdep'
+read
 kubectl get deploy,rs,po -l app=nginxdep
+
+read
+echo ''
+echo 'Now check the rollout history for first revision'
+echo 'kubectl rollout history deploy nginxdep --revision=1'
+read
+
 kubectl rollout history deploy nginxdep --revision=1
 
 read

@@ -41,27 +41,6 @@ kubectl scale deploy nginxdep --replicas=2
 
 read
 echo ''
-echo 'Now get details about the rollout history ...'
-echo 'kubectl rollout history deploy nginxdep'
-read
-kubectl rollout history deploy nginxdep
-
-read
-echo ''
-echo 'Now get details about a specific revision 1...'
-echo 'kubectl rollout history deploy nginxdep --revision=1'
-read
-kubectl rollout history deploy nginxdep --revision=1
-read
-
-echo 'Now get details about a specific revision 2...'
-echo 'kubectl rollout history deploy nginxdep --revision=2'
-read
-kubectl rollout history deploy nginxdep --revision=2
-
-
-read
-echo ''
 echo 'delete the deployment using ...'
 echo 'kubectl delete deployment nginxdep'
 read
