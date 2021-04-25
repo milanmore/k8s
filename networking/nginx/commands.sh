@@ -4,7 +4,7 @@ kubectl apply -f nginxdep.yaml
 
 kubectl get pods -l run=my-nginx -o wide
 
-kubectl get pods -l run=my-nginx -o yaml | grep podIP
+kubectl get pods -l run=my-nginx -o yaml | grep podIP:
 
 
 kubectl expose deployment/my-nginx
