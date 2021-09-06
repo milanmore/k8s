@@ -15,7 +15,7 @@ spec:
         app: custnginx
     spec:
       containers:
-      - image: ketanvj/custnginx:v1
+      - image: milanmore/custnginx:v1
         name: custnginx
         ports:
         - containerPort: 80
